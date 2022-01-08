@@ -15,6 +15,12 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->string('barcode')->unique();
+
+            $table->decimal('price', 6, 2);
+
             $table->timestamps();
         });
     }

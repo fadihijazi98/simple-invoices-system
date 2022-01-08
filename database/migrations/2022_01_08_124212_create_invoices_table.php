@@ -15,6 +15,13 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
+
+            $table->string('customer_name');
+            $table->string('status');
+
+            $table->unsignedBigInteger('store_id');
+            $table->foreign('store_id')->on('stores')->references('id');
+
             $table->timestamps();
         });
     }
