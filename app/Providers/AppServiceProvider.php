@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\helpers\AppHelper;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('app-helper', function () {
+            return new AppHelper();
+        });
     }
 
     /**
